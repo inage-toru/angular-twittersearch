@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html ng-app>
+<head>
+  <meta charset="utf-8">
+  <title>Twitter Search Sample</title>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/bootstrap-responsive.css">
+  <script type="text/javascript" src="http://code.angularjs.org/angular-1.0.0.min.js"></script>
+  <script type="text/javascript" src="js/search.js"></script>
+</head>
+<body ng-controller="TwitterSearchCtrl">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="#">Twitter Search Sample</a>
+        <form class="navbar-search pull-left" ng-submit="doSearch()">
+          <input type="text" class="search-query" placeholder="Search" ng-model="query"/>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div ng-repeat="result in results">
+      <div class="row">
+        <div class="span2" style="text-align: center;">
+          <div><img ng-src="{{result.profile_image_url}}"/></div>
+          <div>{{result.from_user}}</div>
+        </div>
+        <div class="span10">
+          <div>{{result.text}}</div>
+        </div>
+      </div>
+      <hr/>
+    </div>
+  </div>
+</body>
+</html>
